@@ -1,0 +1,16 @@
+.buttonUI {
+  width: 150px;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  background-color: #c7c9c8;
+  font-size: medium;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.buttonUI:disabled {
+  opacity: 0.5;
+  cursor: default;
+}

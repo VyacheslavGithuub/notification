@@ -1,0 +1,17 @@
+.notificationContainer {
+  position: absolute;
+  top: 1%;
+  right: 1%;
+}
+.buttonContainer {
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 75px);
+}
+
+@media screen and (max-width: 400px) {
+  .notificationContainer {
+    top: 0;
+    left: 0;
+  }
+}

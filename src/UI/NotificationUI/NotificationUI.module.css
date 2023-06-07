@@ -1,0 +1,30 @@
+.notificationUI {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* align-items: center; */
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 24px;
+}
+.notificationUIIcon {
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+}
+.notificationUILabel {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 139%;
+  letter-spacing: -0.02em;
+  color: #343841;
+}
+.notificationUIText {
+  font-size: 12px;
+  line-height: 139%;
+  letter-spacing: -0.02em;
+  color: #7b7c7d;
+  margin-bottom: 6px;
+}

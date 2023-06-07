@@ -1,0 +1,23 @@
+.loaderUI {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+}
+.loaderUI:after {
+  content: " ";
+  display: block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 3px solid black;
+  border-color: black transparent black transparent;
+  animation: loaderUI 1.2s linear infinite;
+}
+@keyframes loaderUI {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
