@@ -1,5 +1,5 @@
 import { IStatus } from "../type";
-
+// Компонент принимает статус запроса и отображает соответствующую иконку
 const NotificationUIIcon = ({ status }: IStatus) => {
   return (
     <>
@@ -28,8 +28,8 @@ const NotificationUIIcon = ({ status }: IStatus) => {
         >
           <circle cx="20" cy="20" r="20" fill="#EF373E" />
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M20.0995 16.5466L12.6449 9.09204L9.09117 12.6458L16.5458 20.1004L9.28971 27.3564L12.8435 30.9102L20.0995 23.6542L27.3556 30.9102L30.9093 27.3565L23.6533 20.1004L31.1079 12.6458L27.5541 9.09204L20.0995 16.5466Z"
             fill="white"
           />

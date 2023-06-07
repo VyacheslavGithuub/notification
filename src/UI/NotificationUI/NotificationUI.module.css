@@ -1,7 +1,6 @@
 .notificationUI {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* align-items: center; */
   width: 100%;
   max-width: 400px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);

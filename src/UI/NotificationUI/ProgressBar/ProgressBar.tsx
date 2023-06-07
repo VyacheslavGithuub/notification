@@ -1,19 +1,16 @@
 import style from "./ProgressBar.module.css";
+import { IProgressBar } from "./type";
 import { useProgressBar } from "./useProgressBar";
-interface IProgressBar {
-  lifetime: number;
-  status: any;
-  isStop: boolean;
-}
-const ProgressBar = ({ lifetime, status, isStop }: IProgressBar) => {
-  const { progress } = useProgressBar(lifetime, status, isStop);
+
+const ProgressBar = ({ lifetime, status, isStop, setActive }: IProgressBar) => {
+  const { progress } = useProgressBar(lifetime, status, isStop, setActive);
   return (
     <div className={style.container}>
       <div className={style.progressBar}>
         <div
           className={style.progressBarFill}
           style={{ width: progress + "%" }}
-        ></div>
+        />
       </div>
     </div>
   );

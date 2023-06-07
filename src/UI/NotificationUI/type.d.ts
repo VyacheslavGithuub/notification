@@ -4,4 +4,5 @@ interface IStatus {
 export interface INotificationUI extends IStatus {
   label: string;
   text: string;
+  setActive: (props: boolean) => void;
 }

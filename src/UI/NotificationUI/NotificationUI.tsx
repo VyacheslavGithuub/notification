@@ -1,23 +1,19 @@
-import { useState } from "react";
-
 import style from "./NotificationUI.module.css";
 import NotificationUIIcon from "./NotificationUIIcon/NotificationUIIcon";
 import ProgressBar from "./ProgressBar/ProgressBar";
 import { INotificationUI } from "./type";
+import { useNotificationUI } from "./useNotificationUI";
 
-const NotificationUI = ({ status, label, text }: INotificationUI) => {
-  const [isStop, setStop] = useState<boolean>(false);
-  console.log(isStop);
-
-  const handleMouseEnter = () => {
-    setStop(true);
-  };
-  const handlePointerDown = () => {
-    setStop(false);
-  };
-
+const NotificationUI = ({
+  status,
+  label,
+  text,
+  setActive,
+}: INotificationUI) => {
+  const { isStop, handleMouseEnter, handlePointerDown } = useNotificationUI();
   return (
     <div
+      id="test"
       className={style.notificationUI}
       onMouseEnter={handleMouseEnter}
       onPointerLeave={handlePointerDown}
@@ -30,7 +26,13 @@ const NotificationUI = ({ status, label, text }: INotificationUI) => {
         <p className={style.notificationUIText}>{text}</p>
       </div>
       <div></div>
-      <ProgressBar lifetime={3} status={status} isStop={isStop} />
+      <ProgressBar
+        // Мы можем изменить кол-во секунд для отображения уведомления lifetime={10}
+        lifetime={10}
+        status={status}
+        isStop={isStop}
+        setActive={setActive}
+      />
     </div>
   );
 };

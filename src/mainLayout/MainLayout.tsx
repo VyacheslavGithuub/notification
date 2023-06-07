@@ -1,59 +1,34 @@
-import { useState } from "react";
 import ButtonUI from "../UI/ButtonUI/ButtonUI";
 import NotificationUI from "../UI/NotificationUI/NotificationUI";
 import style from "./mainLayout.module.css";
+import { useMainLayout } from "./useMainLayout";
 
 const MainLayout = () => {
-  const [test, setTest] = useState<boolean | null>(null);
-  const [isLoading, setLoading] = useState<boolean>(false);
-  console.log(isLoading);
-
-  const simulateServer = async () => {
-    setLoading(true);
-    const promise = new Promise<void>((resolve, reject) => {
-      if (Math.random() > 0.5) {
-        return resolve();
-      }
-      const t = setTimeout(() => {
-        reject();
-        return clearTimeout(t);
-      }, 1000);
-      return;
-    });
-    promise.then(
-      () => {
-        setTest(true);
-        setLoading(false);
-      },
-      () => {
-        setTest(false);
-        setLoading(false);
-      }
-    );
-  };
-  // const testClick = () => {};
-  const oneSubmit = () => {
-    simulateServer();
-    // testClick();
-  };
-
+  const { isRequest, isActive, setActive, isLoading, oneSubmit } =
+    useMainLayout();
   return (
     <>
-      {test !== null && (
+      {isRequest !== null && (
         <div className={style.notificationContainer}>
-          {test ? (
-            <NotificationUI
-              status={"success"}
-              label={"Успешно"}
-              text={"Изменения успушно сохранены"}
-            />
-          ) : (
-            <NotificationUI
-              status={"error"}
-              label={"Изменения не сохранены"}
-              text={"Потеря интернет соединения"}
-            />
-          )}
+          {isRequest
+            ? isActive && (
+                // Я бы в компонент пробрасывал только состояние status={"success/error"}
+                // но по тз нужно прокинуть эти пропсы здесь
+                <NotificationUI
+                  status={"success"}
+                  label={"Успешно"}
+                  text={"Изменения успешно сохранены"}
+                  setActive={setActive}
+                />
+              )
+            : isActive && (
+                <NotificationUI
+                  status={"error"}
+                  label={"Изменения не сохранены"}
+                  text={"Потеря интернет соединения"}
+                  setActive={setActive}
+                />
+              )}
         </div>
       )}
 
