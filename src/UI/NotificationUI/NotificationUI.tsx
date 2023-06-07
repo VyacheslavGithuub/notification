@@ -28,7 +28,7 @@ const NotificationUI = ({
       <div></div>
       <ProgressBar
         // Мы можем изменить кол-во секунд для отображения уведомления lifetime={10}
-        lifetime={10}
+        lifetime={3}
         status={status}
         isStop={isStop}
         setActive={setActive}

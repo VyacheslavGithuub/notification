@@ -24,13 +24,16 @@ export const useProgressBar = (
 
       // Функция отвечающая за работу с setTimeout
       const start = (isStop: boolean) => {
-        if (ref.current === sumOfSteps && isStop) {
+        if (ref.current === sumOfSteps) {
+          clearTimeout(timeoutRef.current);
+          timeoutRef.current = 0;
+          setActive(false);
+          return;
+        }
+        if (isStop === true) {
           clearTimeout(timeoutRef.current);
           timeoutRef.current = 0;
           return;
-        }
-        if (ref.current === sumOfSteps) {
-          setActive(false);
         } else {
           // Увеличиваем сумму на 1
           ref.current++;
